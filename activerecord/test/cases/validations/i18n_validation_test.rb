@@ -45,6 +45,8 @@ class I18nValidationTest < ActiveRecord::TestCase
     # TODO Add :on case, but below doesn't work, because then the validation isn't run for some reason
     #      even when using .save instead .valid?
     # [ "given on condition",     {on: :save},                {}]
+    # とりあえず、ある程度泥臭く書けば on はサポートできそう
+    # そこから綺麗に書ける方法を見つけられればマージされるのでは？
   ]
 
   COMMON_CASES.each do |name, validation_options, generate_message_options|

@@ -331,6 +331,8 @@ module ActionDispatch
 
     # TODO This should be broken apart into AD::Request::Session and probably
     # be included by the session middleware.
+    # もしかしたらコメント削除してしまっていいのかも？
+    # [Just reading flash messages should not create a session if one does n… · rails/rails@a12b76b](https://github.com/rails/rails/commit/a12b76b09e98493c1e4aee147416ae5999402298)
     def reset_session
       if session && session.respond_to?(:destroy)
         session.destroy
