@@ -498,6 +498,7 @@ class FinderTest < ActiveRecord::TestCase
 
     #test with limit
     # assert_equal nil, Topic.limit(1).second # TODO: currently failing
+    # 今日の master コンソール上で試したら nil 帰ってきたのでもう動くのではという気がする
     assert_equal nil, Topic.limit(1).second_to_last
   end
 
@@ -527,8 +528,10 @@ class FinderTest < ActiveRecord::TestCase
 
     # test with limit
     # assert_equal nil, Topic.limit(1).third # TODO: currently failing
+    # 今日の master コンソール上で試したら nil 帰ってきたのでもう動くのではという気がする
     assert_equal nil, Topic.limit(1).third_to_last
     # assert_equal nil, Topic.limit(2).third # TODO: currently failing
+    # 今日の master コンソール上で試したら nil 帰ってきたのでもう動くのではという気がする
     assert_equal nil, Topic.limit(2).third_to_last
   end
 

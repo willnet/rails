@@ -88,6 +88,8 @@ class PolymorphicRoutesTest < ActionController::TestCase
     with_test_routes do
       # FIXME: why are these different? Symbol case passes through to
       # `polymorphic_url`, but the String case doesn't.
+      # これ単純に消しても問題ないコメントなのかも？
+      # [test for inconsistency between String and Symbol url_for handling · rails/rails@37d4415](https://github.com/rails/rails/commit/37d4415a7b433fcb987b1c6a5b51bf2d8efc5d5e)
       assert_equal "http://example.com/projects", polymorphic_url("projects")
       assert_equal "projects", url_for("projects")
     end

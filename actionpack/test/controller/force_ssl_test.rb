@@ -230,6 +230,7 @@ class ForceSSLFlashTest < ActionController::TestCase
     assert_equal "http://test.host/force_ssl_flash/cheeseburger", redirect_to_url
 
     # FIXME: AC::TestCase#build_request_uri doesn't build a new uri if PATH_INFO exists
+    # AC::TestCase#build_request_uri がないので一回消して通るか確かめてみたい
     @request.env.delete('PATH_INFO')
 
     get :cheeseburger
@@ -237,6 +238,7 @@ class ForceSSLFlashTest < ActionController::TestCase
     assert_equal "https://test.host/force_ssl_flash/cheeseburger", redirect_to_url
 
     # FIXME: AC::TestCase#build_request_uri doesn't build a new uri if PATH_INFO exists
+    # AC::TestCase#build_request_uri がないので一回消して通るか確かめてみたい
     @request.env.delete('PATH_INFO')
 
     get :use_flash

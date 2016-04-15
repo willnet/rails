@@ -887,6 +887,7 @@ class BasicsTest < ActiveRecord::TestCase
   end
 
   # TODO: extend defaults tests to other databases!
+  # これ mysql 版いけるのでは？
   if current_adapter?(:PostgreSQLAdapter)
     def test_default
       with_timezone_config default: :local do

@@ -14,7 +14,7 @@ require 'support/config'
 require 'support/connection'
 
 # TODO: Move all these random hacks into the ARTest namespace and into the support/ dir
-
+# ロジック移動させるだけで済むのかもしれない
 Thread.abort_on_exception = true
 
 # Show backtraces for deprecated behavior for quicker cleanup.
@@ -202,3 +202,5 @@ module InTimeZone
 end
 
 require 'mocha/setup' # FIXME: stop using mocha
+# 根気があれば直せるのでは
+# ひたすら minitest のモックの記法に置換していくだけでいける？
