@@ -200,5 +200,3 @@ module InTimeZone
     ActiveRecord::Base.time_zone_aware_attributes = old_tz
   end
 end
-
-require 'mocha/setup' # FIXME: stop using mocha
