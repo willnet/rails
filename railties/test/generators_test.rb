@@ -28,6 +28,19 @@ class GeneratorsTest < Rails::Generators::TestCase
     assert_match "`rails generate --help`", output
   end
 
+  def test_invoke_when_generator_is_not_found_without_english_locale
+    original_locales = I18n.available_locales
+    begin
+      I18n.available_locales = :ja
+      name = :unknown
+      output = capture(:stdout) { Rails::Generators.invoke name }
+      assert_match "Could not find generator '#{name}'", output
+      assert_match "`rails generate --help`", output
+    ensure
+      I18n.available_locales = original_locales
+    end
+  end
+
   def test_generator_suggestions
     name = :migrationz
     output = capture(:stdout) { Rails::Generators.invoke name }
