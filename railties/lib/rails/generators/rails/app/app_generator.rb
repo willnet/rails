@@ -113,7 +113,7 @@ module Rails
         template "cable.yml" unless options[:skip_action_cable]
         template "puma.rb"   unless options[:skip_puma]
         template "spring.rb" if spring_install?
-        template "storage.yml"
+        template "storage.yml" unless options[:skip_active_record]
 
         directory "environments"
         directory "initializers"
@@ -138,7 +138,7 @@ module Rails
         template "config/cable.yml"
       end
 
-      if !active_storage_config_exist
+      if !options[:skip_active_record] && !active_storage_config_exist
         template "config/storage.yml"
       end
 

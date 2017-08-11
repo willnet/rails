@@ -420,8 +420,13 @@ class AppGeneratorTest < Rails::Generators::TestCase
     run_generator [destination_root, "--skip-active-record"]
     assert_no_directory "db/"
     assert_no_file "config/database.yml"
+    assert_no_file "config/storage.yml"
     assert_no_file "app/models/application_record.rb"
     assert_file "config/application.rb", /#\s+require\s+["']active_record\/railtie["']/
+    assert_file "config/application.rb", /#\s+require\s+["']active_storage\/engine["']/
+    assert_file "app/assets/javascripts/application.js" do |contents|
+      assert_no_match %r{^//= require activestorage}, contents
+    end
     assert_file "test/test_helper.rb" do |helper_content|
       assert_no_match(/fixtures :all/, helper_content)
     end
@@ -808,6 +813,7 @@ class AppGeneratorTest < Rails::Generators::TestCase
 
     assert_file ".gitignore" do |content|
       assert_no_match(/sqlite/i, content)
+      assert_no_match(/storage/i, content)
     end
   end
 

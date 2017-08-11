@@ -21,8 +21,10 @@
 !/tmp/.keep
 <% end -%>
 
+<% unless options[:skip_active_record] -%>
 # Ignore uploaded files in development
 /storage/*
+<% end -%>
 
 <% unless options[:skip_yarn] -%>
 /node_modules

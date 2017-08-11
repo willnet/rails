@@ -12,7 +12,9 @@
 //
 <% unless options[:skip_javascript] -%>
 //= require rails-ujs
+<% unless options[:skip_active_record] -%>
 //= require activestorage
+<% end -%>
 <% unless options[:skip_turbolinks] -%>
 //= require turbolinks
 <% end -%>
