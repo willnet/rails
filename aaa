@@ -1,0 +1,44 @@
+## 感想
+
+全体的に地味
+
+## Adapter
+
+いろいろadapterがある
+
+- db2
+- firebird
+- oci
+- sqlserver
+
+vendor/mysql.rb
+vendorとは？mysql2 gem的なもの
+vendor/simple?
+
+## とばしてよさそう
+
+> - ConnectionSpecification.establish_connection
+> @@defined_connectionsに設定はいる
+
+## TIPS感ある
+
+モデルクラスごとにDB変えられるっぽい
+
+connection_pool なんてなかった
+
+allow_concurrencyってなんだろ
+-> 1.0 からthread safeだったらしい
+
+mysql_adapter
+postgres_adapter
+
+見所ない
+
+use_transactional_fixtures もうある
+
+## ORM的なところ
+
+https://gist.github.com/takuyan/370adf5327604d8fb0891c58dc310ffc
+
+- なぜかallocateしてインスタンス作ってる
+- instance_variable_set @attributes
