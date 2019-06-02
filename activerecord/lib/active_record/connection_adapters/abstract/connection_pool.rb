@@ -988,12 +988,10 @@ module ActiveRecord
 
         message_bus = ActiveSupport::Notifications.instrumenter
         payload = {
-          connection_id: object_id
+          connection_id: object_id,
+          spec_name: spec.name,
+          config: spec.config
         }
-        if spec
-          payload[:spec_name] = spec.name
-          payload[:config] = spec.config
-        end
 
         message_bus.instrument("!connection.active_record", payload) do
           owner_to_pool[spec.name] = ConnectionAdapters::ConnectionPool.new(spec)
