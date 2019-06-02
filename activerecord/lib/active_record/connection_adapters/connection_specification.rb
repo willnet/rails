@@ -222,7 +222,7 @@ module ActiveRecord
             when Hash
               resolve_hash_connection config_or_env
             else
-              resolve_connection config_or_env
+              resolve_connection config_or_env # infinite recursion?
             end
           end
 
